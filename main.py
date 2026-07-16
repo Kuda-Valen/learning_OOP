@@ -1,3 +1,5 @@
+from abc import ABC, abstractmethod
+
 class SendNofication:
     def __init__(self):
         ...
@@ -9,23 +11,20 @@ class Feature:
         self.message = message
     
 class User:
-    def __init__(self, name: str, email: str, phone: str, is_active: bool):
+    def __init__(self, name: str, email: str, phone: str, is_active=True):
         self.name = name
         self.email = email
         self.phone = phone
         self.is_active = is_active
+        
+    @property
+    def phone(self):
+        return self._phone
     
-        name = input("\nEnter Name: ").strip()
-        email = input("Enter Email: ").strip()
-        phone = input("Enter Phone: ").strip()
-        active_input = input("Is user Active [Y/N]: ").strip().lower()
-
-        if active_input == 'y':
-            is_active = True
-        
-        else:
-            is_active = False
-        
-        user = (name, email, phone, is_active)
+    @phone.setter
+    def phone(self, value):
+        if not value.startwith("+"):
+            raise ValueError("Phone numbers must start with a country code (e.g., +27)")
+        self._phone = value
 
 
