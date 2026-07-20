@@ -27,4 +27,12 @@ class User:
             raise ValueError("Phone numbers must start with a country code (e.g., +27)")
         self._phone = value
 
+if __name__ == "__main__":
+
+    while True:
+        print("1. Send a message")
+        print("2. Exit")
+
+        option = int(input("Choose an option: "))
+
 
