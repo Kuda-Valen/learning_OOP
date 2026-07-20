@@ -39,7 +39,7 @@ if __name__ == "__main__":
             option = int(input("Choose an option: "))
 
             if option == 1:
-                ...
+                customer()
             
             elif option == 2:
                 ...
